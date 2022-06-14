@@ -133,7 +133,7 @@ TextureImporter:
         width: 26
         height: 159
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -141,6 +141,69 @@ TextureImporter:
       bones: []
       spriteID: 6dc1f0990031ff440915218e5c24c110
       internalID: -1059133925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: https___weeklyhow.com_downloads_11-24-19_Flappy%20Bird%20Sprites_2
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 61
+        width: 17
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a0c5bb4f0101744891e949bd05b0f01
+      internalID: 1568632938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: https___weeklyhow.com_downloads_11-24-19_Flappy%20Bird%20Sprites_3
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 35
+        width: 17
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9860d4115cd01774094a2070cb8dca98
+      internalID: 1717086044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: https___weeklyhow.com_downloads_11-24-19_Flappy%20Bird%20Sprites_4
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 9
+        width: 17
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e9da59a848531440a4d1f9e5aaf5283
+      internalID: 772000416
       vertices: []
       indices: 
       edges: []
@@ -157,7 +220,10 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       https___weeklyhow.com_downloads_11-24-19_Flappy%20Bird%20Sprites_1: -1059133925
+      https___weeklyhow.com_downloads_11-24-19_Flappy%20Bird%20Sprites_2: 1568632938
+      https___weeklyhow.com_downloads_11-24-19_Flappy%20Bird%20Sprites_3: 1717086044
       https___weeklyhow.com_downloads_11-24-19_Flappy%20Bird%20Sprites_0: 20986381
+      https___weeklyhow.com_downloads_11-24-19_Flappy%20Bird%20Sprites_4: 772000416
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

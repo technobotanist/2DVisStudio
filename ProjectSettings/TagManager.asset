@@ -13,8 +13,8 @@ TagManager:
   - Water
   - UI
   - 
-  - 
-  - Pipe
+  - Background
+  - Midground
   - Foreground
   - 
   - 
@@ -41,4 +41,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 83933045
+    locked: 0
+  - name: Midground
+    uniqueID: 137653653
+    locked: 0
+  - name: Foreground
+    uniqueID: 3201146851
     locked: 0

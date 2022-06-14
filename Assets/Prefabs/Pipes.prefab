@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2057505163654271689}
   - component: {fileID: 3209426135137607643}
   - component: {fileID: 1514553764010645647}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pipes
   m_TagString: Pipe
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 2057505165009399974}
   - component: {fileID: 2057505165009399977}
   - component: {fileID: 2057505165009399976}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pipe1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,8 +153,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 137653653
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 20986381, guid: 04e9bff7f672b1c41990b9e7d30e634f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 2057505165226768677}
   - component: {fileID: 2057505165226768680}
   - component: {fileID: 2057505165226768679}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pipe2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,8 +264,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 137653653
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -1059133925, guid: 04e9bff7f672b1c41990b9e7d30e634f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
