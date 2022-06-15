@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class PipeController : MonoBehaviour
 {
-    public float speed = 2f;
-    private Rigidbody2D rb;
+    private GameManager gameManager;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
 
-    private void FixedUpdate()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        rb.AddForce(new Vector2(-speed * 4000 * Time.fixedDeltaTime, 0f));
-        Debug.Log(rb.velocity);
+        if(collision.gameObject.tag == "Player")
+        {
+            gameManager.ScoreUp();
+        }
     }
 }

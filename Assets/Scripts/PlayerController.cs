@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.tag == "Pipe")
         {
             Debug.Log("Lose");
+            GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().Lose();
         }
     }
 }
