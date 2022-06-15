@@ -6,8 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
     public float flapForce = 5f;
-    private bool canFlap = true;
     public float flapDelay = 0.25f;
+    private bool playing = true;
 
     // Start is called before the first frame update
     void Start()
@@ -18,20 +18,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && canFlap)
+        if(playing && Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Flap");
             rb.velocity = Vector3.zero;
             rb.AddForce(Vector2.up * flapForce);
-            /**canFlap = false;
-            StartCoroutine(WaitFlap());*/
         }
-    }
-
-    IEnumerator WaitFlap()
-    {
-        yield return new WaitForSeconds(flapDelay);
-        canFlap = true;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -41,5 +33,10 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Lose");
             GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().Lose();
         }
+    }
+
+    public void SetPlaying(bool isPlaying)
+    {
+        playing = isPlaying;
     }
 }

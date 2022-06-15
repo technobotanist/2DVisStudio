@@ -11,8 +11,15 @@ public class GameManager : MonoBehaviour
     public int highScore = 0;
 
     public GameObject player;
+    private Rigidbody2D rb;
+    private PlayerController playerController;
 
     public TMP_Text score;
+
+    public PipeCreator pipeCreator;
+
+    private bool canRespawn;
+    public float respawnDelay = 1f;
 
     private bool playing = false;
     private bool started = false;
@@ -25,19 +32,24 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        pipeCreator.SetStopped(true);
         player = GameObject.FindGameObjectWithTag("Player");
+        playerController = player.GetComponent<PlayerController>();
+        rb = player.GetComponent<Rigidbody2D>();
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
         score.SetText("" + count);
-        Time.timeScale = 0;
+        canRespawn = true;
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(canRespawn && Input.GetKeyDown(KeyCode.Space))
         {
             if(!started)
             {
+                pipeCreator.SetStopped(false);
+                rb.constraints = RigidbodyConstraints2D.FreezePositionX;
                 StartScreen.SetActive(false);
-                Time.timeScale = 1;
                 started = true;
                 playing = true;
                 GameScreen.SetActive(true);
@@ -49,10 +61,13 @@ public class GameManager : MonoBehaviour
                 {
                     Destroy(pipe);
                 }
+                pipeCreator.SetStopped(false);
                 player.transform.position = Vector2.zero;
+                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+                player.transform.rotation = Quaternion.identity;
+                rb.constraints = RigidbodyConstraints2D.FreezePositionX;
                 player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 LoseScreen.SetActive(false);
-                Time.timeScale = 1;
                 lost = false;
                 playing = true;
                 GameScreen.SetActive(true);
@@ -67,14 +82,26 @@ public class GameManager : MonoBehaviour
 
     public void Lose()
     {
-        GameScreen.SetActive(false);
-        LoseScreen.SetActive(true);
-        lost = true;
-        playing = false;
-        loseScore.SetText("Score: " + count);
-        loseHighScore.SetText("High Score: " + highScore);
-        count = 0;
-        Time.timeScale = 0;
+        if(!lost)
+        {
+            GameObject[] pipes = GameObject.FindGameObjectsWithTag("Pipe");
+            foreach (GameObject pipe in pipes)
+            {
+                pipe.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+            }
+            pipeCreator.SetStopped(true);
+            GameScreen.SetActive(false);
+            LoseScreen.SetActive(true);
+            lost = true;
+            playing = false;
+            loseScore.SetText("Score: " + count);
+            loseHighScore.SetText("High Score: " + highScore);
+            count = 0;
+
+            playerController.SetPlaying(false);
+            canRespawn = false;
+            StartCoroutine(WaitToRespawn());
+        }
     }
 
     public void ScoreUp()
@@ -86,5 +113,12 @@ public class GameManager : MonoBehaviour
         }
         score.SetText("" + count);
         Debug.Log(count);
+    }
+
+    IEnumerator WaitToRespawn()
+    {
+        yield return new WaitForSeconds(respawnDelay);
+        canRespawn = true;
+        playerController.SetPlaying(true);
     }
 }

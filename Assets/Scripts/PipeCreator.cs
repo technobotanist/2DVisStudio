@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class PipeCreator : MonoBehaviour
 {
-    private float spawnInterval = 2f;
+    public float spawnInterval = 2f;
     private bool canSpawn = true;
 
     public GameObject pipes;
     public float pipeSpeed = 200f;
+    private bool stopped = false;
 
     // Update is called once per frame
     void Update()
     {
-        if(canSpawn)
+        if(!stopped && canSpawn)
         {
             canSpawn = false;
             StartCoroutine(CreatePipe());
@@ -28,5 +29,10 @@ public class PipeCreator : MonoBehaviour
         Debug.Log(pipeObject.GetComponent<Rigidbody2D>().velocity);
         yield return new WaitForSeconds(spawnInterval);
         canSpawn = true;
+    }
+
+    public void SetStopped(bool isStopped)
+    {
+        stopped = isStopped;
     }
 }
