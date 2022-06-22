@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PipeController : MonoBehaviour
 {
-    private GameManager gameManager;
+    private HoppyHankGameManager gameManager;
 
     void Awake()
     {
-        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<HoppyHankGameManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

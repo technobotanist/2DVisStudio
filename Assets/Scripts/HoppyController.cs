@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class HoppyController : MonoBehaviour
 {
     private Rigidbody2D rb;
     public float flapForce = 5f;
@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.tag == "Pipe")
         {
             Debug.Log("Lose");
-            GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().Lose();
+            GameObject.FindGameObjectWithTag("GameManager").GetComponent<HoppyHankGameManager>().Lose();
         }
     }
 

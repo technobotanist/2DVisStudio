@@ -574,7 +574,7 @@ Transform:
   m_GameObject: {fileID: 298508109}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -71.21, y: 0, z: 1}
-  m_LocalScale: {x: 9.25, y: 9.25, z: 1}
+  m_LocalScale: {x: 9.3, y: 9.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2194,7 +2194,7 @@ Transform:
   m_GameObject: {fileID: 1610674988}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 71.03, y: 0, z: 1}
-  m_LocalScale: {x: 9.25, y: 9.25, z: 1}
+  m_LocalScale: {x: 9.3, y: 9.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2215,6 +2215,8 @@ MonoBehaviour:
   spawnInterval: 1.5
   pipes: {fileID: 2057505163654271688, guid: 46e2e794c1be2e94fa412c5087d28d4a, type: 3}
   pipeSpeed: 5
+  startingOffset: 1.5
+  step: 0.05
 --- !u!1 &1760168660
 GameObject:
   m_ObjectHideFlags: 0

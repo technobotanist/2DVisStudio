@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Pipe
   - GameManager
+  - TopPipe
+  - BottomPipe
+  - Obstacle
   layers:
   - Default
   - TransparentFX
