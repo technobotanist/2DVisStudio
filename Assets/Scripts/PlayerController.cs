@@ -9,10 +9,13 @@ public class PlayerController : MonoBehaviour
     public float flapDelay = 0.25f;
     private bool playing = true;
 
+    private AudioSource flapSound;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        flapSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -20,7 +23,9 @@ public class PlayerController : MonoBehaviour
     {
         if(playing && Input.GetKeyDown(KeyCode.Space))
         {
+            flapSound.Stop();
             Debug.Log("Flap");
+            flapSound.Play();
             rb.velocity = Vector3.zero;
             rb.AddForce(Vector2.up * flapForce);
         }
