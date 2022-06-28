@@ -29,6 +29,9 @@ public class HoppyHankGameManager : MonoBehaviour
     public TMP_Text loseScore;
     public TMP_Text loseHighScore;
 
+    public AudioSource music;
+    public AudioSource scoreSound;
+
     private void Start()
     {
         pipeCreator.SetStopped(true);
@@ -46,6 +49,7 @@ public class HoppyHankGameManager : MonoBehaviour
         {
             if(!started)
             {
+                music.Play();
                 pipeCreator.SetStopped(false);
                 rb.constraints = RigidbodyConstraints2D.FreezePositionX;
                 StartScreen.SetActive(false);
@@ -54,6 +58,7 @@ public class HoppyHankGameManager : MonoBehaviour
             }
             else if(lost)
             {
+                music.Play();
                 GameObject[] pipes = GameObject.FindGameObjectsWithTag("Pipe");
                 foreach(GameObject pipe in pipes)
                 {
@@ -81,6 +86,7 @@ public class HoppyHankGameManager : MonoBehaviour
     {
         if(!lost)
         {
+            music.Pause();
             GameObject[] pipes = GameObject.FindGameObjectsWithTag("Pipe");
             foreach (GameObject pipe in pipes)
             {
@@ -102,6 +108,8 @@ public class HoppyHankGameManager : MonoBehaviour
 
     public void ScoreUp()
     {
+        scoreSound.Stop();
+        scoreSound.Play();
         count++;
         if (highScore < count)
         {
