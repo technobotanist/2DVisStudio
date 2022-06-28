@@ -3599,6 +3599,7 @@ MonoBehaviour:
   - {fileID: 7454459440175223764, guid: 2d343c39992373f44877d470de244bcb, type: 3}
   - {fileID: 8152564848983332196, guid: a725354cef1c432468939e944e3166ec, type: 3}
   - {fileID: 2249006521915631587, guid: 3c5829eee283edc4abc166d04b06392a, type: 3}
+  - {fileID: 4231449968023567472, guid: a587292087adeb74597248608d6adadd, type: 3}
   finishLine: {fileID: 8403873828759101580, guid: 8514b9d34e9a55442a4f9ddf64ab84ba, type: 3}
   obstacleSpeed: 15
   speedStep: 1
