@@ -9,13 +9,13 @@ public class HoppyController : MonoBehaviour
     public float flapDelay = 0.25f;
     private bool playing = true;
 
-    private AudioSource flapSound;
+    public AudioSource flapSound;
+    public AudioSource bonkSound;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        flapSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -36,6 +36,7 @@ public class HoppyController : MonoBehaviour
         if(collision.gameObject.tag == "Pipe")
         {
             Debug.Log("Lose");
+            bonkSound.Play();
             GameObject.FindGameObjectWithTag("GameManager").GetComponent<HoppyHankGameManager>().Lose();
         }
     }
