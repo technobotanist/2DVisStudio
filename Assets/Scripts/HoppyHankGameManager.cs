@@ -5,14 +5,14 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
-public class GameManager : MonoBehaviour
+public class HoppyHankGameManager : MonoBehaviour
 {
     public int count = 0;
     public int highScore = 0;
 
     public GameObject player;
     private Rigidbody2D rb;
-    private PlayerController playerController;
+    private HoppyController playerController;
 
     public TMP_Text score;
 
@@ -21,7 +21,6 @@ public class GameManager : MonoBehaviour
     private bool canRespawn;
     public float respawnDelay = 1f;
 
-    private bool playing = false;
     private bool started = false;
     private bool lost = false;
     public GameObject GameScreen;
@@ -34,7 +33,7 @@ public class GameManager : MonoBehaviour
     {
         pipeCreator.SetStopped(true);
         player = GameObject.FindGameObjectWithTag("Player");
-        playerController = player.GetComponent<PlayerController>();
+        playerController = player.GetComponent<HoppyController>();
         rb = player.GetComponent<Rigidbody2D>();
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
         score.SetText("" + count);
@@ -51,7 +50,6 @@ public class GameManager : MonoBehaviour
                 rb.constraints = RigidbodyConstraints2D.FreezePositionX;
                 StartScreen.SetActive(false);
                 started = true;
-                playing = true;
                 GameScreen.SetActive(true);
             }
             else if(lost)
@@ -69,14 +67,13 @@ public class GameManager : MonoBehaviour
                 player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 LoseScreen.SetActive(false);
                 lost = false;
-                playing = true;
                 GameScreen.SetActive(true);
                 score.SetText("" + count);
             }
         }
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            Application.Quit();
+            SceneManager.LoadScene(0);
         }
     }
 
@@ -93,7 +90,6 @@ public class GameManager : MonoBehaviour
             GameScreen.SetActive(false);
             LoseScreen.SetActive(true);
             lost = true;
-            playing = false;
             loseScore.SetText("Score: " + count);
             loseHighScore.SetText("High Score: " + highScore);
             count = 0;

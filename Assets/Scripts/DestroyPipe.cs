@@ -8,7 +8,7 @@ public class DestroyPipe : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Pipe")
+        if(collision.gameObject.tag == "Pipe" | collision.gameObject.tag == "Obstacle")
         {
             Debug.Log("Destroy pipe");
             StartCoroutine(DestroyPipeObject(collision.gameObject));

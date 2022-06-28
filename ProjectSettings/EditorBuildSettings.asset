@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/Main Menu.unity
+    guid: 24e9117a02695ed4e8ed6a5207e7a5c6
+  - enabled: 1
+    path: Assets/Scenes/HoppyHank.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/HurdlingHank.unity
+    guid: 74ace78d999935147a45aca7a775964e
   m_configObjects: {}
