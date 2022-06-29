@@ -12,7 +12,8 @@ public class HurdlingHankGameManager : MonoBehaviour
 
     public TMP_Text time;
     private bool timeStart = false;
-    private int timeLeft = 60;
+    public int maxTime = 90;
+    private int timeLeft;
     private bool waitForTime = false;
 
     public ObstacleCreator obstacleCreator;
@@ -39,6 +40,7 @@ public class HurdlingHankGameManager : MonoBehaviour
         rb = player.GetComponent<Rigidbody2D>();
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
         canRespawn = true;
+        timeLeft = maxTime;
     }
 
     private void Update()
@@ -126,7 +128,7 @@ public class HurdlingHankGameManager : MonoBehaviour
             loseScore.SetText("Time Left: " + timeLeft);
 
             timeStart = false;
-            timeLeft = 60;
+            timeLeft = maxTime;
             playerController.SetPlaying(false);
             canRespawn = false;
             StartCoroutine(WaitToRespawn());
@@ -148,7 +150,7 @@ public class HurdlingHankGameManager : MonoBehaviour
             won = true;
 
             timeStart = false;
-            timeLeft = 60;
+            timeLeft = maxTime;
             playerController.SetPlaying(false);
             canRespawn = false;
             StartCoroutine(WaitToRespawn());
