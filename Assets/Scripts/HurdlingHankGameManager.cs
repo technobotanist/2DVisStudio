@@ -32,6 +32,9 @@ public class HurdlingHankGameManager : MonoBehaviour
     public TMP_Text loseScore;
     public TMP_Text loseHighScore;
 
+    public AudioSource music;
+    public AudioSource winSound;
+
     private void Start()
     {
         obstacleCreator.SetStopped(true);
@@ -49,6 +52,7 @@ public class HurdlingHankGameManager : MonoBehaviour
         {
             if (!started)
             {
+                music.Play();
                 obstacleCreator.SetStopped(false);
                 rb.constraints = RigidbodyConstraints2D.FreezeAll;
                 StartScreen.SetActive(false);
@@ -56,9 +60,11 @@ public class HurdlingHankGameManager : MonoBehaviour
                 GameScreen.SetActive(true);
                 timeStart = true;
                 time.SetText("" + timeLeft);
+                playerController.SetTargetPosition(player.transform.position);
             }
             else if (lost | won)
             {
+                music.Play();
                 lost = false;
                 won = false;
                 GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
@@ -68,6 +74,7 @@ public class HurdlingHankGameManager : MonoBehaviour
                 }
                 obstacleCreator.SetStopped(false);
                 player.transform.position = new Vector2(0, 0.625f);
+                playerController.SetTargetPosition(player.transform.position);
                 rb.constraints = RigidbodyConstraints2D.FreezeRotation;
                 player.transform.rotation = Quaternion.identity;
                 rb.constraints = RigidbodyConstraints2D.FreezeAll;
@@ -95,8 +102,6 @@ public class HurdlingHankGameManager : MonoBehaviour
             StartCoroutine(WaitOneSecond());
         }
 
-        
-
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             SceneManager.LoadScene(0);
@@ -115,6 +120,7 @@ public class HurdlingHankGameManager : MonoBehaviour
     {
         if (!lost)
         {
+            music.Pause();
             GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
             foreach (GameObject obstacle in obstacles)
             {
@@ -139,6 +145,8 @@ public class HurdlingHankGameManager : MonoBehaviour
     {
         if(!won)
         {
+            music.Pause();
+            winSound.Play();
             GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
             foreach (GameObject obstacle in obstacles)
             {

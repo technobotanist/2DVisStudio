@@ -14,6 +14,9 @@ public class HurdlingController : MonoBehaviour
     public float moveStep = 0.25f;
     private Vector2 targetPosition;
 
+    public AudioSource flap;
+    public AudioSource bonk;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +36,8 @@ public class HurdlingController : MonoBehaviour
                     {
                         moving = true;
                         targetPosition = new Vector2(transform.position.x, transform.position.y - travelDistance);
+                        flap.Stop();
+                        flap.Play();
                     }
                 }
                 else if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -41,6 +46,8 @@ public class HurdlingController : MonoBehaviour
                     {
                         moving = true;
                         targetPosition = new Vector2(transform.position.x, transform.position.y + travelDistance);
+                        flap.Stop();
+                        flap.Play();
                     }
                 }
             }
@@ -61,11 +68,17 @@ public class HurdlingController : MonoBehaviour
         {
             Debug.Log("Lose");
             GameObject.FindGameObjectWithTag("GameManager").GetComponent<HurdlingHankGameManager>().Lose();
+            bonk.Play();
         }
     }
 
     public void SetPlaying(bool isPlaying)
     {
         playing = isPlaying;
+    }
+
+    public void SetTargetPosition(Vector2 targetPosition)
+    {
+        this.targetPosition = targetPosition;
     }
 }

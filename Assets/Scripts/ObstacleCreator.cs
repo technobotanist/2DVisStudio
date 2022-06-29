@@ -15,6 +15,7 @@ public class ObstacleCreator : MonoBehaviour
     public float obstacleSpeed = 20f;
     public float speedStep = 1f;
     public float maxSpeed = 35f;
+    public float div = 2f;
     private float speed;
     private bool stopped = false;
 
@@ -63,15 +64,15 @@ public class ObstacleCreator : MonoBehaviour
             }
         }
 
-        if(speed < maxSpeed)
+        /**if(speed < maxSpeed / div)
         {
             speed += speedStep;
-            if(speed > maxSpeed)
+            if(speed > maxSpeed / div)
             {
-                speed = maxSpeed;
+                speed = maxSpeed / div;
             }
-        }
-        else if(interval > minInterval)
+        }*/
+        if(interval > minInterval)
         {
             interval -= intervalStep;
             if(interval < minInterval)
@@ -79,6 +80,14 @@ public class ObstacleCreator : MonoBehaviour
                 interval = minInterval;
             }
         }
+        /**else if(speed < maxSpeed)
+        {
+            speed += speedStep;
+            if (speed > maxSpeed)
+            {
+                speed = maxSpeed;
+            }
+        }*/
 
         yield return new WaitForSeconds(interval);
         canSpawn = true;
@@ -86,7 +95,7 @@ public class ObstacleCreator : MonoBehaviour
 
     IEnumerator FinishWait()
     {
-        yield return new WaitForSeconds(spawnInterval + interval);
+        yield return new WaitForSeconds(spawnInterval + interval * 10);
         canSpawn = true;
     }
 
