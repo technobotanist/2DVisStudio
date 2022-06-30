@@ -9,6 +9,7 @@ TagManager:
   - TopPipe
   - BottomPipe
   - Obstacle
+  - Brick
   layers:
   - Default
   - TransparentFX
@@ -51,6 +52,9 @@ TagManager:
     locked: 0
   - name: Midground
     uniqueID: 137653653
+    locked: 0
+  - name: BetweenGround
+    uniqueID: 1839437299
     locked: 0
   - name: Foreground
     uniqueID: 3201146851
