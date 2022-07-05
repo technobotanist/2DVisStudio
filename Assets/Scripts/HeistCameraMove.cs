@@ -10,7 +10,7 @@ public class HeistCameraMove : MonoBehaviour
 
     private Vector3 targetPositionCamera;
     private Vector2 targetPositionPlayer;
-    private float moveStep = 0.01f;
+    public float moveStep = 0.01f;
     private float playerMoveStep;
 
     public GameObject player;
