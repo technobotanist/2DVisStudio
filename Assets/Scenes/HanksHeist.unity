@@ -6737,8 +6737,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00048540297, y: 0.020328047}
-  m_Size: {x: 0.3966489, y: 0.28155702}
+  m_Offset: {x: 0.022022318, y: 0.06747917}
+  m_Size: {x: 0.5831085, y: 0.37586552}
   m_Direction: 1
 --- !u!82 &921887595
 AudioSource:
@@ -12007,8 +12007,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00048540297, y: 0.020328047}
-  m_Size: {x: 0.3966489, y: 0.28155702}
+  m_Offset: {x: 0.022022318, y: 0.06747917}
+  m_Size: {x: 0.5831085, y: 0.37586552}
   m_Direction: 1
 --- !u!95 &1726663675
 Animator:
